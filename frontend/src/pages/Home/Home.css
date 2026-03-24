@@ -1,0 +1,280 @@
+.home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/home-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(12px);
+  transform: scale(1.1);
+  z-index: -2;
+}
+
+.home::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 18, 32, 0.68);
+  z-index: -1;
+}
+
+.homeSection {
+  padding-bottom: 28px;
+}
+
+.homeHero {
+  display: grid;
+  grid-template-columns: 1.45fr 0.95fr;
+  gap: 28px;
+  min-height: 420px;
+  padding: 38px;
+  border-radius: 30px;
+  background:
+    radial-gradient(
+      760px 320px at 15% 10%,
+      rgba(212, 175, 55, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      760px 320px at 85% 90%,
+      rgba(212, 175, 55, 0.12),
+      transparent 60%
+    ),
+    rgba(45, 35, 22, 0.85);
+}
+
+.homeHero__left {
+  display: grid;
+  gap: 14px;
+  align-content: center;
+}
+
+.homeHero__title {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.05;
+}
+
+.homeHero__text {
+  margin: 0;
+  max-width: 62ch;
+  font-size: 16px;
+}
+
+.homeHero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.homeHero__right {
+  display: grid;
+  gap: 14px;
+  align-content: center;
+}
+
+.homeHero__stat {
+  border: 1px solid var(--border);
+  background: rgba(45, 35, 22, 0.45);
+  border-radius: 20px;
+  padding: 18px;
+}
+
+.homeHero__statValue {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.homeHero__statLabel {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.homePanel {
+  padding: 20px;
+}
+
+.homePanel--full {
+  margin-top: 18px;
+}
+
+.homePanel__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.homePanel__title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.homePanel__sub {
+  margin: 6px 0 0;
+  max-width: 70ch;
+}
+
+.homeServicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.homeServiceCard {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(45, 35, 22, 0.45);
+}
+
+.homeServiceCard__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.homeServiceCard__title {
+  font-weight: 700;
+}
+
+.homeServiceCard__price {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.homeNearestTournament {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(45, 35, 22, 0.45);
+}
+
+.homeNearestTournament__name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.homeNearestTournament__meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.homeNearestTournament__meta span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(45, 35, 22, 0.55);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.homeNearestTournament__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.homeTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.homeTable th,
+.homeTable td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.homeTable th {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.homeInvite {
+  margin-top: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.homeInvite__title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.homeInvite__text {
+  max-width: 70ch;
+  margin: 0 auto 16px;
+}
+
+.homeInvite__links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.homeInvite__links a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  background: rgba(45, 35, 22, 0.45);
+  color: var(--text);
+  transition: 0.15s ease;
+}
+
+.homeInvite__links a:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.45);
+  color: var(--accent);
+}
+
+.small {
+  font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+  .homeHero {
+    grid-template-columns: 1fr;
+  }
+
+  .homeServicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .homeHero {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .homeServicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .homeNearestTournament__grid {
+    grid-template-columns: 1fr;
+  }
+}

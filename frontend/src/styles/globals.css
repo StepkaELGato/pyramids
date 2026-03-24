@@ -1,0 +1,181 @@
+:root {
+  /* Основной фон */
+  --bg: #14110f;                /* глубокий темный песок */
+  --panel: rgba(28, 22, 18, 0.9);
+
+  /* Текст */
+  --text: #f5e7c9;              /* светлый песочный */
+  --muted: #c6b089;
+
+  /* Акцент (золото) */
+  --accent: #d4af37;            /* классическое золото */
+  --accent-soft: rgba(212, 175, 55, 0.15);
+
+  /* Границы */
+  --border: rgba(212, 175, 55, 0.18);
+
+  /* Тени */
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+
+  --container: 1120px;
+  --radius: 20px;
+} 
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+.app {
+  min-height: 100vh;   /* минимум на весь экран */
+  display: flex;
+  flex-direction: column;
+}
+
+.app__content {
+  flex: 1;             /* растягивает контент и прижимает футер вниз */
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      900px 500px at 15% 0%,
+      rgba(212, 175, 55, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 85% 10%,
+      rgba(160, 120, 30, 0.12),
+      transparent 60%
+    ),
+    var(--bg);
+
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(45, 35, 22, 0.55);
+  color: var(--text);
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn--primary {
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.35),
+    rgba(212, 175, 55, 0.15)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(212, 175, 55, 0.5),
+    rgba(212, 175, 55, 0.2)
+  );
+  border-color: rgba(212, 175, 55, 0.8);
+}
+
+.btn--primary:active {
+  transform: scale(0.97);
+}
+
+.badge {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: rgba(2, 6, 23, 0.35);
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.menuLink {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(45, 35, 22, 0.55);  /* было синее — стало песочное */
+  color: var(--text);
+  transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease;
+}
+
+.menuLink:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(4px);
+}

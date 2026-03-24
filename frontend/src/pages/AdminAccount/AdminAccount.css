@@ -1,0 +1,317 @@
+.adminPage {
+  padding: 24px 0 40px;
+}
+
+.adminHead {
+  margin-bottom: 14px;
+}
+
+.adminTitle {
+  margin: 0 0 6px;
+}
+
+.adminSub {
+  font-size: 14px;
+}
+
+.adminState {
+  margin: 8px 0 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.adminState--err {
+  border-color: rgba(255, 84, 84, 0.45);
+  background: rgba(255, 84, 84, 0.08);
+}
+
+.adminState--ok {
+  border-color: rgba(64, 220, 140, 0.45);
+  background: rgba(64, 220, 140, 0.08);
+}
+
+.adminTabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+}
+
+.adminTab {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.adminTab--active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.adminSection {
+  display: grid;
+  gap: 14px;
+}
+
+.adminCard {
+  padding: 16px;
+}
+
+.adminCard__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.adminH2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.adminGhostBtn {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.adminBtn {
+  height: 42px;
+  min-width: 180px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.adminBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.adminMiniBtn {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.adminMiniBtn--danger {
+  border-color: rgba(255, 84, 84, 0.35);
+  background: rgba(255, 84, 84, 0.08);
+}
+
+.adminRowBtns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.adminForm {
+  display: grid;
+  gap: 12px;
+}
+
+.adminForm--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.fieldCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+}
+
+.adminActions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 4px;
+}
+
+.adminFilters {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+
+.adminFilters--bookings {
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+}
+
+.adminFilters--clients {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.adminFilters--tournaments {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.adminFilters--prices {
+  grid-template-columns: 2fr 1fr;
+}
+
+.adminTableWrap {
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+}
+
+.adminTableWrap--fixed {
+  max-height: 620px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.adminTable {
+  width: 100%;
+  min-width: 980px;
+  border-collapse: collapse;
+}
+
+.adminTable th,
+.adminTable td {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-align: left;
+  vertical-align: top;
+}
+
+.adminTable thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(17, 17, 22, 0.96);
+  z-index: 1;
+}
+
+.adminInlineSelect {
+  min-width: 160px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 0 10px;
+}
+
+.smallNote {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+@media (max-width: 1100px) {
+  .adminFilters--bookings,
+  .adminFilters--clients,
+  .adminFilters--tournaments,
+  .adminFilters--prices {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .adminForm--2,
+  .adminFilters--bookings,
+  .adminFilters--clients,
+  .adminFilters--tournaments,
+  .adminFilters--prices {
+    grid-template-columns: 1fr;
+  }
+}
+
+.teamMembersList {
+  display: grid;
+  gap: 10px;
+  max-height: 290px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.teamMemberItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: border 0.15s ease, background 0.15s ease;
+}
+
+.teamMemberItem:hover {
+  border-color: rgba(212, 175, 55, 0.35);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.teamMemberItem--active {
+  border-color: var(--accent);
+  background: rgba(212, 175, 55, 0.10);
+}
+
+.teamMemberItem--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.teamMemberItem input {
+  margin-top: 3px;
+}
+
+.teamMemberItem__content {
+  display: grid;
+  gap: 4px;
+}
+
+.teamMemberItem__name {
+  font-weight: 700;
+}
+
+.teamMemberItem__meta {
+  font-size: 13px;
+}
+
+.adminSummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.adminSummaryCard {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.adminSummaryValue {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .adminSummaryGrid {
+    grid-template-columns: 1fr;
+  }
+}

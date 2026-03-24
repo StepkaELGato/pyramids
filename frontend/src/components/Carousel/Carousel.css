@@ -1,0 +1,166 @@
+.carousel {
+  padding: 0;
+}
+
+.carousel__frame {
+  position: relative;
+  margin: 0 calc(-50vw + 50%);
+  width: 100vw;
+  padding: 34px 0 64px;
+  overflow: hidden;
+}
+
+.carousel__frame::before,
+.carousel__frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 110px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.carousel__frame::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(11, 18, 32, 0.95), transparent);
+}
+
+.carousel__frame::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(11, 18, 32, 0.95), transparent);
+}
+
+.carousel__window {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel__track {
+  display: flex;
+  will-change: transform;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  padding: 0 22px;
+}
+
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(15, 23, 42, 0.44);
+  color: var(--text);
+  font-size: 30px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: background 0.12s ease, border 0.12s ease, transform 0.12s ease;
+}
+
+.carousel__arrow:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent);
+}
+
+.carousel__arrow:active {
+  transform: translateY(-55%) scale(0.98);
+}
+
+.carousel__arrow--left {
+  left: 22px;
+}
+
+.carousel__arrow--right {
+  right: 22px;
+}
+
+.carousel__dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 2;
+}
+
+.carousel__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(148, 163, 184, 0.55);
+  padding: 0;
+  cursor: pointer;
+  transition: width 0.12s ease, background 0.12s ease;
+}
+
+.carousel__dot--active {
+  width: 22px;
+  background: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .carousel__frame {
+    padding: 24px 0 54px;
+  }
+
+  .carousel__arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    background: rgba(15, 23, 42, 0.55);
+  }
+
+  .carousel__arrow--left {
+    left: 10px;
+  }
+
+  .carousel__arrow--right {
+    right: 10px;
+  }
+
+  .carousel__slide {
+    padding: 0 12px;
+  }
+
+  .carousel__frame::before,
+  .carousel__frame::after {
+    width: 38px;
+  }
+
+  .carousel__dots {
+    bottom: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .carousel__arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .carousel__arrow--left {
+    left: 8px;
+  }
+
+  .carousel__arrow--right {
+    right: 8px;
+  }
+
+  .carousel__frame::before,
+  .carousel__frame::after {
+    width: 28px;
+  }
+}

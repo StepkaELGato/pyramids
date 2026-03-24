@@ -1,0 +1,280 @@
+/* ===== HEADER ===== */
+
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    rgba(35, 27, 18, 0.95),
+    rgba(20, 15, 10, 0.95)
+  );
+  backdrop-filter: blur(14px);
+}
+
+.siteHeader__inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== LEFT SIDE ===== */
+
+.siteHeader__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Гамбургер-кнопка */
+.siteHeader__iconBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(45, 35, 22, 0.65);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease;
+}
+
+.siteHeader__iconBtn:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent);
+}
+
+.siteHeader__iconBtn:active {
+  transform: scale(0.96);
+}
+
+/* Иконка гамбургера */
+.hamburger {
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  position: relative;
+  border-radius: 999px;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+}
+
+.hamburger::before {
+  top: -6px;
+}
+
+.hamburger::after {
+  top: 6px;
+}
+
+/* ===== LOGO ===== */
+
+.siteHeader__logo {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  text-decoration: none;
+}
+
+.siteHeader__logoImg {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.15s ease;
+}
+
+.siteHeader__logo:hover .siteHeader__logoImg {
+  transform: scale(1.05);
+}
+
+/* ===== RIGHT SIDE BUTTONS ===== */
+
+.siteHeader__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.siteHeader__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(45, 35, 22, 0.65);
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease;
+}
+
+.siteHeader__btn:hover,
+.siteHeader__iconBtn:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.siteHeader__btn:active {
+  transform: translateY(0px);
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  .siteHeader__inner {
+    height: 58px;
+  }
+
+  .siteHeader__btn {
+    padding: 0 10px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .siteHeader__iconBtn,
+  .siteHeader__logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .siteHeader__logoImg {
+    height: 28px;
+  }
+}
+
+.siteHeader__logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.siteHeader__citySelect {
+  background: rgba(45, 35, 22, 0.55);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-right: 16px;
+  cursor: pointer;
+  transition: border 0.15s ease, background 0.15s ease;
+}
+
+.siteHeader__citySelect:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* кастомный выбор города */
+.citySelect {
+  position: relative;
+  margin-right: 16px;
+}
+
+.citySelect__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 12px;
+  border-radius: 12px;
+
+  background: rgba(45, 35, 22, 0.55);
+  border: 1px solid var(--border);
+  color: var(--text);
+
+  cursor: pointer;
+  transition: border 0.15s ease, background 0.15s ease, transform 0.12s ease;
+}
+
+.citySelect__btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.citySelect__label {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.citySelect__chev {
+  opacity: 0.9;
+  transition: transform 0.15s ease;
+}
+
+.citySelect__chev.isOpen {
+  transform: rotate(180deg);
+}
+
+.citySelect__menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 220px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(35, 27, 18, 0.98),
+    rgba(18, 13, 8, 0.98)
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  z-index: 80;
+}
+
+.citySelect__item {
+  width: 100%;
+  text-align: left;
+
+  border: 1px solid transparent;
+  background: rgba(45, 35, 22, 0.35);
+  color: var(--text);
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  cursor: pointer;
+  transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease;
+}
+
+.citySelect__item:hover {
+  background: var(--accent-soft);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateX(4px);
+}
+
+.citySelect__item.isActive {
+  background: rgba(212, 175, 55, 0.14);
+  border-color: rgba(212, 175, 55, 0.55);
+  color: var(--accent);
+}
+
+/* на мобилке можно сделать меню шире/по центру */
+@media (max-width: 640px) {
+  .citySelect {
+    margin-right: 10px;
+  }
+  .citySelect__menu {
+    width: 200px;
+  }
+}

@@ -1,0 +1,115 @@
+.accountPage {
+  padding: 24px 0 40px;
+}
+
+.accountTitle {
+  margin: 0 0 14px;
+}
+
+.accountGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.accountCard {
+  padding: 16px;
+}
+
+.accountCard--full {
+  grid-column: 1 / -1;
+}
+
+.accountH2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.pwdForm {
+  display: grid;
+  gap: 10px;
+}
+
+.accountBtn {
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.accountBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.accountState {
+  margin: 8px 0 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.accountState--err {
+  border-color: rgba(255, 84, 84, 0.45);
+  background: rgba(255, 84, 84, 0.08);
+}
+
+.accountState--ok {
+  border-color: rgba(64, 220, 140, 0.45);
+  background: rgba(64, 220, 140, 0.08);
+}
+
+.tableWrap {
+  overflow: auto;
+}
+
+.tableWrap--visits {
+  max-height: 620px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+}
+
+.accountTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.accountTable th,
+.accountTable td {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-align: left;
+  vertical-align: top;
+}
+
+.accountTable thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(17, 17, 22, 0.96);
+  z-index: 1;
+}
+
+.smallNote {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+@media (max-width: 900px) {
+  .accountGrid {
+    grid-template-columns: 1fr;
+  }
+}

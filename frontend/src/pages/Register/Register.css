@@ -1,0 +1,61 @@
+.registerPage {
+  padding: 28px 0 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.registerCard {
+  width: min(560px, 100%);
+  padding: 18px;
+}
+
+.registerTitle {
+  margin: 0 0 8px;
+}
+
+.registerSub {
+  margin: 0 0 14px;
+}
+
+.registerForm {
+  display: grid;
+  gap: 12px;
+}
+
+.registerBtn {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.registerBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.registerHint {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.registerState {
+  margin: 10px 0 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.registerState--err {
+  border-color: rgba(255, 84, 84, 0.45);
+  background: rgba(255, 84, 84, 0.08);
+}
+
+.registerState--ok {
+  border-color: rgba(64, 220, 140, 0.45);
+  background: rgba(64, 220, 140, 0.08);
+}

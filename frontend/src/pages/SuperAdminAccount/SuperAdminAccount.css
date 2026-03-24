@@ -1,0 +1,287 @@
+.superPage {
+  padding: 24px 0 40px;
+}
+
+.superHead {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.superTitle {
+  margin: 0;
+}
+
+.superSub {
+  color: var(--muted);
+}
+
+.superState {
+  margin: 8px 0 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.superState--err {
+  border-color: rgba(255, 84, 84, 0.45);
+  background: rgba(255, 84, 84, 0.08);
+}
+
+.superState--ok {
+  border-color: rgba(64, 220, 140, 0.45);
+  background: rgba(64, 220, 140, 0.08);
+}
+
+.superStack {
+  display: grid;
+  gap: 14px;
+}
+
+.superCategories,
+.superSearchCard,
+.superLayoutCard {
+  padding: 16px;
+}
+
+.superCategories__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.superChip {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.superChip--active {
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--accent);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.superSearchRow {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.superBtn,
+.superMiniBtn {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.superBtn {
+  height: 42px;
+  min-width: 150px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.superMiniBtn {
+  height: 34px;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+
+.superMiniBtn--danger {
+  border-color: rgba(255, 84, 84, 0.35);
+  background: rgba(255, 84, 84, 0.08);
+}
+
+.superForm {
+  display: grid;
+  gap: 12px;
+}
+
+.superFormGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.superField--full {
+  grid-column: 1 / -1;
+}
+
+.superActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.superTableWrap {
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  max-height: 70vh;
+}
+
+.superTable {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
+}
+
+.superTable th,
+.superTable td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-align: left;
+  vertical-align: top;
+}
+
+.superTable thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(17, 17, 22, 0.96);
+  z-index: 1;
+}
+
+.superTable code {
+  white-space: pre-wrap;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.superHint {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+  .superSearchRow,
+  .superFormGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.superCheck {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.superCheck__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.superCheck__box {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(45, 35, 22, 0.55);
+  display: inline-block;
+  position: relative;
+  transition: border 0.15s ease, background 0.15s ease;
+}
+
+.superCheck__text {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.superCheck__input:checked + .superCheck__box {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+.superCheck__input:checked + .superCheck__box::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.superMembersList {
+  display: grid;
+  gap: 8px;
+  min-width: 260px;
+}
+
+.superMembersItem {
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.superMembersName {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.superMembersMeta {
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.superMembersPicker {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+  max-height: 320px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.superMemberPickItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+}
+
+.superMemberPickItem--active {
+  border-color: rgba(212, 175, 55, 0.45);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+.superMemberPickItem--disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.superMemberPickItem__content {
+  display: grid;
+  gap: 4px;
+}
+
+.superMemberPickItem__name {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.superMemberPickItem__meta {
+  font-size: 12px;
+  color: var(--muted);
+}
