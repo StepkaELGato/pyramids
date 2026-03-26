@@ -1,5 +1,6 @@
 .accountPage {
   padding: 24px 0 40px;
+  overflow-x: hidden;
 }
 
 .accountTitle {
@@ -31,6 +32,12 @@
   gap: 12px;
   padding: 6px 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;          /* 🔥 ключевое */
+}
+
+.infoRow b {
+  max-width: 100%;
+  word-break: break-word;   /* 🔥 перенос длинных строк */
 }
 
 .pwdForm {
@@ -71,7 +78,8 @@
 }
 
 .tableWrap {
-  overflow: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .tableWrap--visits {
@@ -108,7 +116,15 @@
   line-height: 1.2;
 }
 
-@media (max-width: 900px) {
+.field,
+.field__control {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
   .accountGrid {
     grid-template-columns: 1fr;
   }
