@@ -15,9 +15,10 @@
 
 .siteHeader__inner {
   height: 64px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
 }
 
 /* ===== LEFT SIDE ===== */
@@ -26,6 +27,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 /* Гамбургер-кнопка */
@@ -105,7 +108,10 @@
 .siteHeader__right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 10px;
+  min-width: 0;
+  overflow: visible;
 }
 
 .siteHeader__btn {
@@ -122,6 +128,8 @@
   cursor: pointer;
   text-decoration: none;
   transition: background 0.15s ease, border 0.15s ease, transform 0.12s ease;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .siteHeader__btn:hover,
@@ -140,22 +148,64 @@
 @media (max-width: 768px) {
   .siteHeader__inner {
     height: 58px;
+    gap: 6px;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
-  .siteHeader__btn {
-    padding: 0 10px;
-    height: 36px;
-    font-size: 13px;
+  .siteHeader__left {
+    gap: 6px;
   }
 
-  .siteHeader__iconBtn,
+  .siteHeader__right {
+    gap: 6px;
+    min-width: 0;
+    overflow: visible;
+  }
+
+  .siteHeader__iconBtn {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+
   .siteHeader__logo {
-    width: 38px;
-    height: 38px;
+    height: 34px;
+    flex: 0 0 auto;
   }
 
   .siteHeader__logoImg {
-    height: 28px;
+    height: 24px;
+    width: auto;
+  }
+
+  .citySelect {
+    margin-right: 0;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .citySelect__btn {
+    max-width: 100%;
+    min-width: 0;
+    height: 34px;
+    padding: 0 8px;
+    gap: 6px;
+    font-size: 12px;
+    border-radius: 999px;
+  }
+
+  .citySelect__label {
+    font-size: 12px;
+  }
+
+  .siteHeader__btn {
+    min-width: 0;
+    height: 34px;
+    padding: 0 8px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -185,22 +235,23 @@
 .citySelect {
   position: relative;
   margin-right: 16px;
+  min-width: 0;
+  flex-shrink: 1;
 }
 
 .citySelect__btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   padding: 8px 12px;
   border-radius: 12px;
-
   background: rgba(45, 35, 22, 0.55);
   border: 1px solid var(--border);
   color: var(--text);
-
   cursor: pointer;
   transition: border 0.15s ease, background 0.15s ease, transform 0.12s ease;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .citySelect__btn:hover {
@@ -212,6 +263,10 @@
 .citySelect__label {
   font-weight: 600;
   letter-spacing: 0.2px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .citySelect__chev {
@@ -225,7 +280,7 @@
 
 .citySelect__menu {
   position: absolute;
-  right: 0;
+  left: 0;
   top: calc(100% + 10px);
   width: 220px;
 
@@ -271,10 +326,98 @@
 
 /* на мобилке можно сделать меню шире/по центру */
 @media (max-width: 640px) {
-  .citySelect {
-    margin-right: 10px;
+  .siteHeader__inner {
+    gap: 4px;
   }
+
+  .siteHeader__left {
+    gap: 4px;
+  }
+
+  .siteHeader__right {
+    gap: 4px;
+  }
+
+  .siteHeader__iconBtn {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+  }
+
+  .siteHeader__logo {
+    height: 32px;
+  }
+
+  .siteHeader__logoImg {
+    height: 20px;
+  }
+
+  .citySelect {
+    margin-right: 0;
+  }
+
+  .citySelect__btn,
+  .siteHeader__btn {
+    height: 32px;
+    padding: 0 6px;
+    font-size: 11px;
+  }
+
+  .citySelect__label {
+    font-size: 11px;
+  }
+
   .citySelect__menu {
     width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .siteHeader__inner {
+    gap: 3px;
+  }
+
+  .siteHeader__left {
+    gap: 3px;
+  }
+
+  .siteHeader__right {
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .siteHeader__iconBtn {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+  }
+
+  .siteHeader__logo {
+    height: 30px;
+  }
+
+  .siteHeader__logoImg {
+    height: 18px;
+  }
+
+  .citySelect {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .citySelect__btn,
+  .siteHeader__btn {
+    height: 30px;
+    padding: 0 5px;
+    font-size: 10px;
+    border-radius: 999px;
+  }
+
+  .citySelect__btn {
+    gap: 4px;
+  }
+
+  .citySelect__label {
+    font-size: 10px;
   }
 }
