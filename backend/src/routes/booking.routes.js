@@ -87,6 +87,11 @@ function isWholeClubDayService(serviceName) {
   return name.includes("всего клуба на день");
 }
 
+function isVipRoomService(serviceName) {
+  const name = String(serviceName || "").toLowerCase();
+  return name.includes("vip");
+}
+
 function hoursBetween(startISO, endISO) {
   const a = new Date(startISO);
   const b = new Date(endISO);
@@ -413,11 +418,12 @@ router.post("/", async (req, res) => {
   }
 
   const isWholeDayBooking = isWholeClubDayService(service.name);
-  const requiredType = isWholeDayBooking ? null : "device-check-later";
+  const isVipRoomBooking = isVipRoomService(service.name);
+  const noDeviceRequired = isWholeDayBooking || isVipRoomBooking;
 
   let deviceId = null;
 
-  if (!isWholeDayBooking) {
+  if (!noDeviceRequired) {
     if (deviceIds.length !== 1) {
       return res.status(400).json({ message: "Нужно выбрать ровно 1 место" });
     }
@@ -489,7 +495,7 @@ router.post("/", async (req, res) => {
 
     const clubWorkHours = clubRes.rows[0].work_hours || null;
 
-    if (!isWholeDayBooking) {
+    if (!noDeviceRequired) {
       const workHoursCheck = isBookingInsideWorkHours(startTime, endTime, clubWorkHours);
       if (!workHoursCheck.ok) {
         await query("ROLLBACK");
@@ -497,7 +503,7 @@ router.post("/", async (req, res) => {
       }
     }
 
-    if (!isWholeDayBooking) {
+    if (!noDeviceRequired) {
       const okDevice = await assertDeviceInClub({ deviceId, clubId });
       if (!okDevice) {
         await query("ROLLBACK");
@@ -542,7 +548,7 @@ router.post("/", async (req, res) => {
       }
     }
 
-    if (!isWholeDayBooking) {
+    if (!noDeviceRequired) {
       const wholeDayConflict = await query(
         `
         SELECT 1
@@ -565,19 +571,26 @@ router.post("/", async (req, res) => {
       }
     }
 
-    const conflict = await query(
-      `
-      SELECT 1
-      FROM public.booking_devices bd
-      JOIN public.bookings b ON b.id = bd.booking_id
-      WHERE b.club_id = $1
-        AND bd.device_id = $2
-        AND tstzrange(bd.start_time, bd.end_time, '[)') &&
-            tstzrange($3::timestamptz, $4::timestamptz, '[)')
-      LIMIT 1
-      `,
-      [clubId, deviceId, startTime, endTime]
-    );
+    if (!noDeviceRequired) {
+      const conflict = await query(
+        `
+        SELECT 1
+        FROM public.booking_devices bd
+        JOIN public.bookings b ON b.id = bd.booking_id
+        WHERE b.club_id = $1
+          AND bd.device_id = $2
+          AND tstzrange(bd.start_time, bd.end_time, '[)') &&
+              tstzrange($3::timestamptz, $4::timestamptz, '[)')
+        LIMIT 1
+        `,
+        [clubId, deviceId, startTime, endTime]
+      );
+
+      if (conflict.rowCount > 0) {
+        await query("ROLLBACK");
+        return res.status(409).json({ message: "Выбранное место уже занято на это время" });
+      }
+    }
 
     if (conflict.rowCount > 0) {
       await query("ROLLBACK");
@@ -638,7 +651,7 @@ router.post("/", async (req, res) => {
 
     const bookingId = Number(bookingIns.rows[0].id);
 
-    if (!isWholeDayBooking) {
+    if (!noDeviceRequired) {
       await query(
         `
         INSERT INTO public.booking_devices (booking_id, device_id, start_time, end_time)
