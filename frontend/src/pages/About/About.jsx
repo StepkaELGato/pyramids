@@ -14,7 +14,7 @@ export default function About() {
           Мы стараемся сделать атмосферу “как дома”, но с техникой уровня турниров.
         </p>
 
-        <div className="aboutHero__stats">
+        <div className="aboutHero__stats aboutHero__stats--desktop">
           <div className="aboutStat">
             <div className="aboutStat__num">PC • Console • VR</div>
             <div className="aboutStat__label">игровые зоны</div>
@@ -30,7 +30,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="aboutGrid container">
+      <section className="aboutGrid container aboutGrid--desktop">
         <article className="aboutCard">
           <h2 className="aboutCard__title">Большой ассортимент</h2>
           <p className="aboutCard__text">
@@ -69,6 +69,68 @@ export default function About() {
             <li>Можно прийти “просто потусить”</li>
           </ul>
         </article>
+      </section>
+
+      <section className="aboutMobile container">
+        <div className="aboutMobile__pair">
+          <div className="aboutStat">
+            <div className="aboutStat__num">PC • Console • VR</div>
+            <div className="aboutStat__label">игровые зоны</div>
+          </div>
+
+          <article className="aboutCard">
+            <h2 className="aboutCard__title">Большой ассортимент</h2>
+            <p className="aboutCard__text">
+              Игровые ПК, консоли и VR — выбирай формат под настроение.
+              Можно прийти одному, с друзьями или собрать команду для катки.
+            </p>
+            <ul className="aboutList">
+              <li>Компьютеры для популярных онлайн-игр</li>
+              <li>Консольная зона для отдыха</li>
+              <li>VR для новых впечатлений</li>
+            </ul>
+          </article>
+        </div>
+
+        <div className="aboutMobile__pair">
+          <div className="aboutStat">
+            <div className="aboutStat__num">Турниры</div>
+            <div className="aboutStat__label">регулярные события</div>
+          </div>
+
+          <article className="aboutCard">
+            <h2 className="aboutCard__title">Турниры и командная игра</h2>
+            <p className="aboutCard__text">
+              Мы любим соревновательный дух: проводим турниры, анонсы и активности.
+              Можно участвовать, болеть за друзей или просто смотреть, как играют сильнейшие.
+            </p>
+            <ul className="aboutList">
+              <li>Турниры для разных уровней</li>
+              <li>Команды и регистрация участников</li>
+              <li>Призы и рейтинг</li>
+            </ul>
+          </article>
+        </div>
+
+        <div className="aboutMobile__pair">
+          <div className="aboutStat">
+            <div className="aboutStat__num">VIP</div>
+            <div className="aboutStat__label">комнаты для компаний</div>
+          </div>
+
+          <article className="aboutCard">
+            <h2 className="aboutCard__title">Комфорт и атмосфера</h2>
+            <p className="aboutCard__text">
+              Pyramids — это не только про игры, но и про комфорт: удобные места,
+              понятное бронирование и дружелюбная атмосфера.
+            </p>
+            <ul className="aboutList">
+              <li>VIP-комнаты для компании</li>
+              <li>Поддержка администратора</li>
+              <li>Можно прийти “просто потусить”</li>
+            </ul>
+          </article>
+        </div>
       </section>
 
       <section className="aboutQuote container">
