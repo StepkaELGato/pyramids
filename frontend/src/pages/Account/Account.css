@@ -13,12 +13,19 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.accountGrid > * {
+  min-width: 0;
+}
+
+
 .accountCard {
   padding: 16px;
+  min-width: 0;
 }
 
 .accountCard--full {
   grid-column: 1 / -1;
+  min-width: 0;
 }
 
 .accountH2 {
@@ -32,7 +39,7 @@
   gap: 12px;
   padding: 6px 0;
   border-bottom: 1px solid rgba(255,255,255,0.06);
-  flex-wrap: wrap;          /* 🔥 ключевое */
+  flex-wrap: wrap;
 }
 
 .infoRow b {
@@ -43,6 +50,7 @@
 .pwdForm {
   display: grid;
   gap: 10px;
+  min-width: 0;
 }
 
 .accountBtn {
@@ -53,6 +61,9 @@
   color: var(--text);
   font-weight: 800;
   cursor: pointer;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .accountBtn:disabled {
@@ -80,6 +91,7 @@
 .tableWrap {
   width: 100%;
   overflow-x: auto;
+  min-width: 0;
 }
 
 .tableWrap--visits {
@@ -91,9 +103,9 @@
 }
 
 .accountTable {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
-  min-width: 760px;
 }
 
 .accountTable th,
