@@ -1650,7 +1650,7 @@ router.get("/bookings", async (req, res) => {
       LEFT JOIN public.device_types dt ON dt.id = d.type_id
       WHERE b.club_id = $1
       GROUP BY
-        b.id, bs.id, s.id, cl.id
+        b.id, bs.id, s.id, cl.id, s.name
       ORDER BY b.start_time DESC, b.id DESC
       LIMIT 300
       `,
