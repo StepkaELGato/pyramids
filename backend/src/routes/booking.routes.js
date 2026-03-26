@@ -592,11 +592,6 @@ router.post("/", async (req, res) => {
       }
     }
 
-    if (conflict.rowCount > 0) {
-      await query("ROLLBACK");
-      return res.status(409).json({ message: "Выбранное место уже занято на это время" });
-    }
-
     const bookingIns = await query(
       `
       INSERT INTO public.bookings
