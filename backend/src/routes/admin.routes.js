@@ -639,8 +639,7 @@ router.get("/teams", async (req, res) => {
                   coalesce(c.middle_name, '')
                 ),
               'email', c.email,
-              'phone', c.phone,
-              'role', tm.role
+              'phone', c.phone
             )
           ) FILTER (WHERE u.id IS NOT NULL),
           '[]'::json
